@@ -36,7 +36,6 @@ if(numero2 > numero1 & numero3 < numero2){
   print("Es falso")
   
 }
-holaaaaaa    
 ################################################################################
 
 # | pipe (OR) me asegura que alguna de las dos debe cumplir (por lo menos una)
