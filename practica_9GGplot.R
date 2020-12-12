@@ -96,8 +96,8 @@ ggplot(paises_filtrado_pais,
            y = Casos_Nuevos,
            color = Pais)) +
   geom_bar(stat="identity") +
-  geom_line() +
-  transition_reveal(Fecha_Reporte) 
+  geom_line() 
+  #transition_reveal(Fecha_Reporte) 
 #facet_grid(Pais~.) + 
 #geom_line() +
 
