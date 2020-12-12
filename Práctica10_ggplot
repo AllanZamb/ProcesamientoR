@@ -71,4 +71,27 @@ class(paises_filtrado$Casos_Totales)
 ggplot(paises_filtrado, 
        aes(x = Fecha_Reporte, y = Casos_Totales, fill = Region)) + 
   geom_boxplot()
+  
+  
+  
+  
+  ##############################################################################
+  paises_filtrado_pais <- paises %>%  filter(Country == paises_mas_casos_millon) %>% 
+  group_by(Fecha_Reporte = Date_reported, Pais=Country) %>% 
+  summarise(Casos_Nuevos = sum(New_cases)) %>% 
+  arrange(desc(Casos_Nuevos))
+
+#Convertimos a Date
+paises_filtrado_pais$Fecha_Reporte <- as.Date(paises_filtrado_pais$Fecha_Reporte, format = "%Y-%m-%d")
+
+ggplot(paises_filtrado_pais,
+       aes(x = Fecha_Reporte,
+           y = Casos_Nuevos,
+           color = Pais)) +
+  geom_bar(stat="identity") +
+  geom_line() +
+  transition_reveal(Fecha_Reporte) 
+  #facet_grid(Pais~.) + 
+  
+  #geom_line() +
 
